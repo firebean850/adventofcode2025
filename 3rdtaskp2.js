@@ -17,4 +17,3 @@ for (let x = 0; x < splitted.length; x++) {
 }
 console.log(sum);
 
-//170997883706617

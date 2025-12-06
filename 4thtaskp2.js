@@ -33,14 +33,36 @@ function checksurrounding(arr, row, col){
     }
 }
 
-for (let x = 0; x < height; x++){
-    for (let y = 0; y < width; y++){
-        if (checksurrounding(desiredinput, x, y)){
-            answer += 1 ;
+function remover(arr){
+    for (let x = 0; x < height; x++){
+        for (let y = 0; y < width; y++){
+            if (checksurrounding(desiredinput, x, y)){
+                answer += 1;
+                const temp = desiredinput[x].split("");
+                temp[y] = "x";
+                desiredinput[x] = temp.join("");
+
+            }
         }
     }
+    let allchecked = true;
+    for (let x = 0; x < height; x++){
+        if (!allchecked){
+            break;
+        }
+        for (let y = 0; y < width; y++){
+            if (checksurrounding(desiredinput, x, y)){
+                allchecked = false;
+                break;
+            }
+        }
+    }
+    if (!allchecked){
+        remover(desiredinput);
+    }
+
 }
+remover(desiredinput);
 
 console.log(answer);
-
-
+//2720 too low
