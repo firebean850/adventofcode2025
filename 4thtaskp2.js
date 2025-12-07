@@ -65,4 +65,3 @@ function remover(arr){
 remover(desiredinput);
 
 console.log(answer);
-//2720 too low
